@@ -1,0 +1,30 @@
+# --- Python files
+
+# compiled source
+*.pyc
+
+# setuptools
+dist/*
+/.eggs
+/*.egg-info
+
+# testing
+.cache
+.coverage
+.coverage.*
+.pytest_cache
+
+# --- Miscellaneous
+
+# autoenv
+.env
+
+# direnv
+.direnv
+.envrc
+
+# vim
+.*.swp
+
+# macOS
+.DS_Store*
