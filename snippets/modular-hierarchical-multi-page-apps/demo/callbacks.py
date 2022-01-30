@@ -23,7 +23,7 @@ from demo import section_a
 import demo.section_a.callbacks as section_a_callbacks
 
 
-# --- URL Routing
+# --- Menu management
 
 @app.callback(Output('page-menu', 'children'),
               Input('url', 'pathname'))
@@ -59,8 +59,6 @@ def update_menu(pathname: str) -> html:
 
     return menu
 
-
-# --- Menu management
 
 @app.callback(Output('page-menu-container', component_property='style'),
               Input('page-menu', 'children'))
