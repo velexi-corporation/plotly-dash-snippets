@@ -115,7 +115,9 @@ def url_route(path: str,
 
             # Match prefix
             if '/'.join(split_url[0:-1]) == path:
-                if invalid_ids is not None and page_id not in invalid_ids:
+                if (invalid_ids is not None and page_id not in invalid_ids) \
+                        or invalid_ids is None:
+
                     return {'display': 'block'}
 
             return {'display': 'none'}
