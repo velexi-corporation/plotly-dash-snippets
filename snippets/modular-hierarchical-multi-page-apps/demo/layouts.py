@@ -37,7 +37,8 @@ def get_layout() -> html:
                     dcc.Link(
                         html.Div(f'Multi-Page App ({app.version})',
                                  className='fs-4 ms-3'),
-                        href=app.get_relative_path('/')
+                        href=app.get_relative_path('/'),
+                        style={'text-decoration': 'none'},
                         ),
                     width=6,
                     ),
@@ -46,6 +47,7 @@ def get_layout() -> html:
                         html.Div('Section A',
                                  className='fs-4 ms-3'),
                         href=app.get_relative_path('/section-a'),
+                        style={'text-decoration': 'none'},
                         ),
                     className="text-end",
                     width=2,
@@ -55,6 +57,7 @@ def get_layout() -> html:
                         html.Div('Section B',
                                  className='fs-4 ms-3'),
                         href=app.get_relative_path('/section-b'),
+                        style={'text-decoration': 'none'},
                         ),
                     className="text-end",
                     width=2,
@@ -66,20 +69,16 @@ def get_layout() -> html:
             className="mb-1"
             ),
         dbc.Row([
-            dbc.Col(html.Div(""), width=1,
-                    className="mx-0 px-0 my-0 py-0"),
-            dbc.Col(html.Div(dbc.Navbar(
-                dbc.Container(id='page-menu',
-                              className="d-flex align-items-center mx-0 px-1",
-                              fluid=True),
-                id='page-menu-container',
-                className="mx-0 px-0",
-                )),
-                width=10, className="mx-0 px-1 my-0 py-0"),
-            dbc.Col(html.Div(""), width=1,
-                    className="mx-0 px-0 my-0 py-0"),
+            dbc.Col(width=1),
+            dbc.Col(dbc.Navbar(
+                dbc.Col(
+                    dbc.Container(id='page-menu'),
+                    width=12),
+                ),
+                width=10),
+            dbc.Col(width=1),
             ],
-            className="menu-bg-color my-0 py-0"
+            justify='center',
             ),
         dbc.Row([
             dbc.Col(html.Div(""), width=1),
@@ -116,9 +115,17 @@ def get_home_page_layout() -> html:
     ------------
     layout for home page
     """
-    layout = html.Div(
-        "Modular Hierarchical Multi-Page App",
-        className="banner-title",
-        )
+    layout = html.Div([
+        html.H2("Modular Hierarchical Multi-Page App Demo"),
+        html.P("""
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+            enim ad minim veniam, quis nostrud exercitation ullamco laboris
+            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat
+            nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+            sunt in culpa qui officia deserunt mollit anim id est laborum.
+            """),
+        ])
 
     return layout
