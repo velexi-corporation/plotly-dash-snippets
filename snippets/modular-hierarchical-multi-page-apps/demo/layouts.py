@@ -35,8 +35,7 @@ def get_layout() -> html:
                 dbc.Col(width=1),
                 dbc.Col(
                     dcc.Link(
-                        html.Div(f'Multi-Page App ({app.version})',
-                                 className='fs-4 ms-3'),
+                        html.Div('Home', className='fs-4 ms-3'),
                         href=app.get_relative_path('/'),
                         style={'text-decoration': 'none'},
                         ),
@@ -70,18 +69,18 @@ def get_layout() -> html:
             ),
         dbc.Row([
             dbc.Col(width=1),
-            dbc.Col(dbc.Navbar(
-                dbc.Col(
-                    dbc.Container(id='page-menu'),
-                    width=12),
-                ),
+            dbc.Col(
+                id='page-menu-container',
+                children=dbc.Navbar(
+                    dbc.Col(dbc.Container(id='page-menu'), width=12),
+                    ),
                 width=10),
             dbc.Col(width=1),
             ],
             justify='center',
             ),
         dbc.Row([
-            dbc.Col(html.Div(""), width=1),
+            dbc.Col(width=1),
             dbc.Col([
                 html.Div([
                     html.Div(id='home-page-container',
@@ -96,7 +95,7 @@ def get_layout() -> html:
                 ],
                 width=10,
                 className="content-bg-color mx-0 px-1 mt-1 pt-0 mb-2 pb-2"),
-            dbc.Col(html.Div(""), width=1),
+            dbc.Col(width=1),
             ]),
         ])
 
