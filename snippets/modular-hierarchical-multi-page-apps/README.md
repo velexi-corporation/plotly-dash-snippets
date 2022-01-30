@@ -3,7 +3,7 @@ Modular Hierarchical Multi-Page Apps
 
 _Author(s)_: Kevin Chu `<kevin@velexi.com>`
 
-_Last Updated_: 2022-01-29
+_Last Updated_: 2022-01-30
 
 ------------------------------------------------------------------------------
 
@@ -185,14 +185,28 @@ consisting of two core components.
     layout).
 
     * For pages with subpages, this file should import the callback modules
-      for the subpages. Note that callback files should be imported using the
-      `import … as` syntax to avoid namespace collisions:
+      for the subpages.
 
-      ```python
-      from .subpage import callbacks as subpage_callbacks
-      ```
+      * __Note__. If relative imports are used to import the callback modules
+        for subpages, callback modules should be imported using the
+        `import ... as` syntax to avoid namespace collisions:
+
+        ```python
+        from .subpage import callbacks as subpage_callbacks
+        ```
 
   * `urls.py` (optional): defines URL routes for subpages.
+
+    * For pages whose subpages have subpages, this file should import the urls
+      modules for the subpages:
+
+      * __Note__. If relative imports are used to import the urls modules for
+        subpages, urls modules should be imported using the `import ... as`
+        syntax to avoid namespace collisions:
+
+        ```python
+        from .subpage import urls as subpage_urls
+        ```
 
 ------------------------------------------------------------------------------
 
@@ -269,6 +283,18 @@ consisting of two core components.
   or class that encapsulates creation of subpage layout elements. Having this
   function/class would reduce code redundancy, improve code consistency, and
   reduce the likelihood of errors due to typos.
+
+* __More Modularity of Handling Nested Subpage-Events__. Currently, when the
+  contents of an ancestor element are driven by events triggered by a nested
+  subpage (e.g., page menu updates), the callback for the ancestor element
+  requires knowledge of the entire URL sub-hierarchy. This breaks the
+  modularity of the pages at different levels of the URL hierarchy. It would
+  be better to develop a mechanism that allows to pass subpage information up
+  the URL hierarchy that allows the implementation at different levels of the
+  hierarchy to remain more independent of each other.
+
+* __Add Support for 404 Handling__. The URL routing mechanism does not
+  currently support 404 errors.
 
 ------------------------------------------------------------------------------
 
