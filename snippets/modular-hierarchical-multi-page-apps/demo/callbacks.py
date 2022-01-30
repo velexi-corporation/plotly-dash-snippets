@@ -18,8 +18,9 @@ from dash.dependencies import Input, Output, State
 # Local imports
 from demo import layouts
 from demo.app import app
-from demo import section_a
 from demo.utils import parse_url
+from demo import section_a
+import demo.section_a.callbacks as section_a_callbacks
 
 
 # --- URL Routing
