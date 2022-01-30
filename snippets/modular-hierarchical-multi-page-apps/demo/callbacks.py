@@ -58,3 +58,25 @@ def update_menu(pathname: str) -> html:
         menu = []
 
     return menu
+
+
+# --- Menu management
+
+@app.callback(Output('page-menu-container', component_property='style'),
+              Input('page-menu', 'children'))
+def toggle_page_menu(menu: Iterable) -> dict:
+    """
+    Toggle page menu by updating CSS style for menu container.
+
+    Parameters
+    ----------
+    menu: list of menu items
+
+    Return value
+    ------------
+    style: CSS style for container
+    """
+    if not menu:
+        return {'display': 'none'}
+
+    return {'display': 'block'}
