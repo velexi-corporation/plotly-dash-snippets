@@ -27,20 +27,17 @@ def get_menu() -> list:
     menu: list of menu items for page
     """
     menu = [
-        dbc.Col(
-            dbc.Row([
-                dbc.Col(dcc.Link(
-                    html.Button(
-                        '< Back to Section A',
-                        className='btn btn-primary btn-sm btn-block',
-                        style={'align': 'middle'}),
-                    href=app.get_relative_path('/section')),
-                    width=3, className="ps-2 pe-0"),
-                ],
-                justify='start',
-                className='mx-0'
-                ),
-            width=8, className="px-1"
+        dbc.Row([
+            dbc.Col(dcc.Link(
+                html.Button(
+                    '< Back to Section A',
+                    className='btn btn-primary btn-sm btn-block'
+                    ),
+                href=app.get_relative_path('/section-a')),
+                width=4, className="text-center"),
+            ],
+            justify='start',
+            className='mx-0'
             ),
         ]
 
@@ -60,11 +57,11 @@ def get_layout() -> html:
     layout for container
     """
     content = html.Div([
-        dcc.Store(id='section-a-read-record-id'),
+        dcc.Store(id='section-a-read-page-id'),
         dbc.Row([
-            html.H2(id="section-a-read-primary-name",
+            html.H2(id="section-a-read-title",
                     className="content-text my-0 pt-2 py-1"),
-            dbc.Col(id="section-a-read-record-data",
+            dbc.Col(id="section-a-read-content",
                     className="content-text mt-3"),
             ]),
         ])
