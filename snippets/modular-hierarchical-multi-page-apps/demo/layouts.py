@@ -32,12 +32,14 @@ def get_layout() -> html:
         dcc.Location(id='url', refresh=False),
         html.Div([
             dbc.Row([
+                dbc.Col(width=1),
                 dbc.Col(
                     dcc.Link(
                         html.Div(f'Multi-Page App ({app.version})',
                                  className='fs-4 ms-3'),
                         href=app.get_relative_path('/')
                         ),
+                    width=6,
                     ),
                 dbc.Col(
                     dcc.Link(
@@ -45,6 +47,8 @@ def get_layout() -> html:
                                  className='fs-4 ms-3'),
                         href=app.get_relative_path('/section-a'),
                         ),
+                    className="text-end",
+                    width=2,
                     ),
                 dbc.Col(
                     dcc.Link(
@@ -52,8 +56,12 @@ def get_layout() -> html:
                                  className='fs-4 ms-3'),
                         href=app.get_relative_path('/section-b'),
                         ),
+                    className="text-end",
+                    width=2,
                     ),
-               ]),
+                dbc.Col(width=1),
+               ],
+               ),
             ],
             className="mb-1"
             ),
