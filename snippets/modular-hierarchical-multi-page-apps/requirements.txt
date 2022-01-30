@@ -1,0 +1,7 @@
+# Dash
+dash
+dash-bootstrap-components
+
+# Code quality
+pycodestyle
+pylint
