@@ -1,4 +1,4 @@
 """
-Layouts for 'section.read' section
+Layouts for 'section_a.read' section
 """
 from . import layouts
