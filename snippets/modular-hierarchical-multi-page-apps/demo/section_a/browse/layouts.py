@@ -30,7 +30,7 @@ def get_menu() -> list:
         dbc.Row([
             dbc.Col(dcc.Link(
                 html.Button(
-                    '< Back to Home', id='section-a-menu-item-1-btn',
+                    '< Home', id='section-a-menu-item-1-btn',
                     className='btn btn-primary btn-sm btn-block',
                     ),
                 href=app.get_relative_path('/')),
@@ -38,7 +38,7 @@ def get_menu() -> list:
                 ),
             dbc.Col(dcc.Link(
                 html.Button(
-                    '> Section B', id='section-a-menu-item-2-btn',
+                    'Section B >', id='section-a-menu-item-2-btn',
                     className='btn btn-primary btn-sm btn-block',
                     ),
                 href=app.get_relative_path('/section-b')),
