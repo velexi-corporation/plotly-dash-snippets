@@ -10,7 +10,7 @@ import dash_bootstrap_components as dbc
 
 # Local imports
 from demo.app import app
-from demo import section_a
+from demo import section_a, section_b
 
 
 # --- Layouts
@@ -90,6 +90,11 @@ def get_layout() -> html:
                 html.Div([
                     html.Div(id='section-a-container',
                              children=section_a.layouts.get_layout(),
+                             style={'display': 'none'}),
+                    ]),
+                html.Div([
+                    html.Div(id='section-b-container',
+                             children=section_b.layouts.get_layout(),
                              style={'display': 'none'}),
                     ]),
                 ],

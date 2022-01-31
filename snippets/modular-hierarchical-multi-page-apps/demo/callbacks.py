@@ -19,8 +19,10 @@ from dash.dependencies import Input, Output, State
 from demo import layouts
 from demo.app import app
 from demo.utils import parse_url
-from demo import section_a
-import demo.section_a.callbacks as section_a_callbacks
+
+from demo import section_a, section_b
+import demo.section_a.callbacks
+import demo.section_b.callbacks
 
 
 # --- Menu management
@@ -46,12 +48,14 @@ def update_menu(pathname: str) -> html:
     if section == "section-a":
         if path == "":
             menu = section_a.browse.layouts.get_menu()
-
-        elif path == "add":
-            menu = section_a.add.layouts.get_menu()
-
         else:
             menu = section_a.read.layouts.get_menu()
+
+    elif section == "section-b":
+        if path == "":
+            menu = section_b.browse.layouts.get_menu()
+        else:
+            menu = section_b.read.layouts.get_menu()
 
     else:
         # default menu
