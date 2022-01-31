@@ -39,13 +39,13 @@ def initialize_page(style: str) -> list:
     # Construct page content
     content = html.Ul([
         html.Li(
-            dcc.Link("Item 1", href=app.get_relative_path('/section-a/1'))
+            dcc.Link("Item A.1", href=app.get_relative_path('/section-a/1'))
             ),
         html.Li(
-            dcc.Link("Item 2", href=app.get_relative_path('/section-a/2'))
+            dcc.Link("Item A.2", href=app.get_relative_path('/section-a/2'))
             ),
         html.Li(
-            dcc.Link("Item 3", href=app.get_relative_path('/section-a/3'))
+            dcc.Link("Item A.3", href=app.get_relative_path('/section-a/3'))
             ),
         ])
 
